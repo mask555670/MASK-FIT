@@ -94,3 +94,30 @@ button:focus-visible {
     color: #ffffff;
   }
 }
+
+@media (max-width: 600px) {
+  body {
+    place-items: initial;
+    padding: 0;
+  }
+  h1 {
+    font-size: 2em;
+  }
+  button {
+    padding: 0.5em 1em;
+    font-size: 0.95em;
+  }
+  #root, .app-content {
+    padding: 0.5rem !important;
+  }
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 1.3em;
+  }
+  button {
+    font-size: 0.85em;
+    padding: 0.4em 0.7em;
+  }
+}
