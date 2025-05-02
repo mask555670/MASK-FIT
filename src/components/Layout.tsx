@@ -93,7 +93,7 @@ export default function Layout({ children, mode, setMode }: LayoutProps) {
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
-          background: 'linear-gradient(90deg, #2196f3 0%, #00e676 100%)',
+          background: 'linear-gradient(90deg, #2d0000 0%, #a30000 100%)',
           boxShadow: 4,
         }}
       >
@@ -107,7 +107,7 @@ export default function Layout({ children, mode, setMode }: LayoutProps) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h5" sx={{ fontWeight: 700, letterSpacing: 2, color: '#fff' }}>
+          <Typography variant="h5" sx={{ fontWeight: 700, letterSpacing: 2, color: '#ff2222', textShadow: '1px 1px 6px #000' }}>
             MASK-ФИТНЕС
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
@@ -130,7 +130,7 @@ export default function Layout({ children, mode, setMode }: LayoutProps) {
             onClick={handleProfileMenuOpen}
             color="inherit"
           >
-            <Avatar sx={{ width: 36, height: 36, bgcolor: 'secondary.main' }} />
+            <Avatar sx={{ width: 36, height: 36, bgcolor: '#a30000' }} />
           </IconButton>
           <Menu
             anchorEl={anchorEl}
@@ -162,6 +162,8 @@ export default function Layout({ children, mode, setMode }: LayoutProps) {
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: drawerWidth,
+              background: 'linear-gradient(180deg, #2d0000 0%, #a30000 100%)',
+              color: '#fff',
             },
           }}
         >
@@ -174,6 +176,8 @@ export default function Layout({ children, mode, setMode }: LayoutProps) {
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: drawerWidth,
+              background: 'linear-gradient(180deg, #2d0000 0%, #a30000 100%)',
+              color: '#fff',
             },
           }}
           open

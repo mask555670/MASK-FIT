@@ -83,7 +83,7 @@ export default function MyBody() {
           mb: { xs: 1, md: 3 },
           borderRadius: 3,
           boxShadow: 4,
-          background: 'linear-gradient(90deg, #2196f3 0%, #00e676 100%)',
+          background: 'linear-gradient(90deg, #2d0000 0%, #a30000 100%)',
           color: '#fff',
           display: 'flex',
           flexDirection: { xs: 'column', sm: 'row' },
@@ -93,21 +93,21 @@ export default function MyBody() {
           minWidth: 0,
           maxWidth: { xs: '100vw', md: '100%' },
         }}>
-          <Typography variant="h6" sx={{ fontWeight: 700, fontSize: { xs: 14, sm: 20, md: 24 } }}>
+          <Typography variant="h6" sx={{ fontWeight: 700, fontSize: { xs: 14, sm: 20, md: 24 }, color: '#ff2222', textShadow: '1px 1px 6px #000' }}>
             {t('motivation')}: {t('welcome')}
           </Typography>
           <Box>
-            <Paper sx={{ display: 'inline-block', px: 2, py: 1, bgcolor: 'rgba(255,255,255,0.15)', color: '#fff', fontWeight: 600, borderRadius: 2, boxShadow: 0, fontSize: { xs: 10, sm: 16 } }}>
+            <Paper sx={{ display: 'inline-block', px: 2, py: 1, bgcolor: 'rgba(163,0,0,0.25)', color: '#fff', fontWeight: 600, borderRadius: 2, boxShadow: 0, fontSize: { xs: 10, sm: 16 } }}>
               🏅 7 дней подряд!
             </Paper>
           </Box>
         </Paper>
-        <Typography variant="h4" gutterBottom sx={{ fontSize: { xs: 18, md: 32 } }}>
+        <Typography variant="h4" gutterBottom sx={{ fontSize: { xs: 18, md: 32 }, color: '#ff2222', textShadow: '1px 1px 6px #000' }}>
           {t('body')}
         </Typography>
         <Grid container spacing={1}>
           <Grid item xs={12} md={6}>
-            <Paper sx={{ p: { xs: 1, md: 3 }, borderRadius: 3, boxShadow: 3, mb: 2 }}>
+            <Paper sx={{ p: { xs: 1, md: 3 }, borderRadius: 3, boxShadow: 3, mb: 2, background: 'rgba(45,0,0,0.85)', color: '#fff' }}>
               <Typography variant="h6" gutterBottom sx={{ fontSize: { xs: 14, md: 20 } }}>
                 {t('addExercise')}
               </Typography>
@@ -140,13 +140,13 @@ export default function MyBody() {
             </Paper>
           </Grid>
           <Grid item xs={12} md={6}>
-            <Paper sx={{ p: { xs: 1, md: 3 }, borderRadius: 3, boxShadow: 3, mb: 2 }}>
+            <Paper sx={{ p: { xs: 1, md: 3 }, borderRadius: 3, boxShadow: 3, mb: 2, background: 'rgba(45,0,0,0.85)', color: '#fff' }}>
               <Typography variant="h6" gutterBottom sx={{ fontSize: { xs: 14, md: 20 } }}>
                 История измерений
               </Typography>
               <Box sx={{ width: '100%', overflowX: 'auto' }}>
-                <TableContainer>
-                  <Table size="small" sx={{ minWidth: 600 }}>
+                <TableContainer sx={{ maxWidth: '100vw' }}>
+                  <Table size="small" sx={{ minWidth: { xs: 350, sm: 600 }, background: 'rgba(45,0,0,0.95)' }}>
                     <TableHead>
                       <TableRow>
                         <TableCell sx={{ fontSize: { xs: 10, md: 14 }, p: { xs: 0.3, md: 1 } }}>{t('date')}</TableCell>

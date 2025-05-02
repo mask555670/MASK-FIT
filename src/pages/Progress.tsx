@@ -83,10 +83,10 @@ export default function Progress() {
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={ru}>
       <Box sx={{ p: 3 }}>
-        <Typography variant="h4" gutterBottom>
+        <Typography variant="h4" gutterBottom sx={{ color: '#ff0000', textShadow: '1px 1px 6px #000' }}>
           {t('progress')}
         </Typography>
-        <Paper sx={{ p: 3, mb: 3, borderRadius: 3, boxShadow: 3 }}>
+        <Paper sx={{ p: 3, mb: 3, borderRadius: 3, boxShadow: 3, background: 'linear-gradient(90deg, #2d0000 0%, #a30000 100%)', color: '#fff' }}>
           <Grid container spacing={2} alignItems="center">
             <Grid item xs={12} md={3}>
               <FormControl fullWidth>
@@ -126,8 +126,8 @@ export default function Progress() {
         </Paper>
         <Grid container spacing={3}>
           <Grid item xs={12} md={7}>
-            <Paper sx={{ p: 3, borderRadius: 3, boxShadow: 3, mb: 3 }}>
-              <Typography variant="h6" gutterBottom>
+            <Paper sx={{ p: 3, borderRadius: 3, boxShadow: 3, mb: 3, background: 'rgba(45,0,0,0.85)', color: '#fff' }}>
+              <Typography variant="h6" gutterBottom sx={{ color: '#ff2222', textShadow: '1px 1px 6px #000' }}>
                 {t('chart')}: {getMetricLabel(selectedMetric)}
               </Typography>
               <Box sx={{ height: 350 }}>
@@ -145,7 +145,7 @@ export default function Progress() {
                       type="monotone"
                       dataKey={selectedMetric}
                       name={getMetricLabel(selectedMetric)}
-                      stroke="#2196f3"
+                      stroke="#ff2222"
                       activeDot={{ r: 8 }}
                     />
                   </LineChart>
@@ -154,8 +154,8 @@ export default function Progress() {
             </Paper>
           </Grid>
           <Grid item xs={12} md={5}>
-            <Paper sx={{ p: 3, borderRadius: 3, boxShadow: 3, mb: 3 }}>
-              <Typography variant="h6" gutterBottom>
+            <Paper sx={{ p: 3, borderRadius: 3, boxShadow: 3, mb: 3, background: 'rgba(45,0,0,0.85)', color: '#fff' }}>
+              <Typography variant="h6" gutterBottom sx={{ color: '#ff2222', textShadow: '1px 1px 6px #000' }}>
                 {t('activity')}
               </Typography>
               <Box sx={{ height: 350 }}>
@@ -166,8 +166,8 @@ export default function Progress() {
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <Bar dataKey="exercises" name={t('exercises')} fill="#00e676" />
-                    <Bar dataKey="sets" name={t('setsCount')} fill="#2196f3" />
+                    <Bar dataKey="exercises" name={t('exercises')} fill="#a30000" />
+                    <Bar dataKey="sets" name={t('setsCount')} fill="#ff2222" />
                   </BarChart>
                 </ResponsiveContainer>
               </Box>

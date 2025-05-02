@@ -216,7 +216,7 @@ export default function Workout() {
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={ru}>
       <Box sx={{ p: 3 }}>
-        <Typography variant="h4" gutterBottom>
+        <Typography variant="h4" gutterBottom sx={{ color: '#ff0000', textShadow: '1px 1px 6px #000' }}>
           {t('workout')}
         </Typography>
         <Box sx={{ mb: 3, maxWidth: 300 }}>
@@ -227,16 +227,16 @@ export default function Workout() {
             renderInput={(params) => <TextField {...params} fullWidth />}
           />
         </Box>
-        <Paper sx={{ p: 3, mb: 2, borderRadius: 3, boxShadow: 3 }}>
+        <Paper sx={{ p: 3, mb: 2, borderRadius: 3, boxShadow: 3, background: 'linear-gradient(90deg, #2d0000 0%, #a30000 100%)', color: '#fff' }}>
           <Typography>Здесь будут ваши тренировки.</Typography>
-          <Button variant="contained" color="primary" sx={{ mt: 2 }} onClick={() => handleOpenDialog()}>
+          <Button variant="contained" sx={{ mt: 2, background: '#ff2222', color: '#fff', fontWeight: 700, borderRadius: 2, boxShadow: 2, letterSpacing: 1 }} onClick={() => handleOpenDialog()}>
             Добавить тренировку
           </Button>
         </Paper>
 
         <List>
           {workouts.map(workout => (
-            <Paper key={workout.date} sx={{ mb: 2 }}>
+            <Paper key={workout.date} sx={{ mb: 2, background: 'rgba(45,0,0,0.85)', color: '#fff', borderRadius: 2 }}>
               <ListItem>
                 <ListItemText
                   primary={workout.date}
@@ -264,7 +264,7 @@ export default function Workout() {
           ))}
         </List>
 
-        <Dialog open={openDialog} onClose={handleCloseDialog} maxWidth="md" fullWidth>
+        <Dialog open={openDialog} onClose={handleCloseDialog} maxWidth="md" fullWidth PaperProps={{ sx: { background: 'rgba(45,0,0,0.97)', color: '#fff' } }}>
           <DialogTitle>
             {editingWorkout ? 'Редактировать тренировку' : 'Новая тренировка'}
           </DialogTitle>
@@ -294,7 +294,7 @@ export default function Workout() {
 
             <List>
               {currentExercises.map((ex, exIdx) => (
-                <Paper key={exIdx} sx={{ mb: 3, p: 2, borderRadius: 2, boxShadow: 1 }}>
+                <Paper key={exIdx} sx={{ mb: 3, p: 2, borderRadius: 2, boxShadow: 1, background: 'rgba(45,0,0,0.85)', color: '#fff' }}>
                   <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
                     {editingExercise && editingExercise.exIdx === exIdx ? (
                       <>
