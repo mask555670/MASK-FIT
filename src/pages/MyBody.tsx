@@ -74,7 +74,7 @@ export default function MyBody() {
     <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={ru}>
       <Box sx={{
         p: { xs: 0.5, md: 3 },
-        maxWidth: { xs: 420, md: '100%' },
+        maxWidth: { xs: '100vw', md: '100%' },
         mx: 'auto',
         overflowX: 'hidden',
       }}>
@@ -91,6 +91,7 @@ export default function MyBody() {
           justifyContent: 'space-between',
           gap: 2,
           minWidth: 0,
+          maxWidth: { xs: '100vw', md: '100%' },
         }}>
           <Typography variant="h6" sx={{ fontWeight: 700, fontSize: { xs: 14, sm: 20, md: 24 } }}>
             {t('motivation')}: {t('welcome')}
@@ -126,7 +127,7 @@ export default function MyBody() {
                 <Grid item xs={12}><TextField fullWidth label={t('forearm')} type="number" value={measurements.forearm} onChange={handleInputChange('forearm')} size="small" sx={{ mb: 0.5 }} inputProps={{ style: { fontSize: 14 } }} /></Grid>
                 <Grid item xs={12}><TextField fullWidth label={t('thigh')} type="number" value={measurements.thigh} onChange={handleInputChange('thigh')} size="small" sx={{ mb: 0.5 }} inputProps={{ style: { fontSize: 14 } }} /></Grid>
               </Grid>
-              <Box sx={{ position: { xs: 'fixed', md: 'static' }, left: 0, bottom: 0, width: { xs: '100%', md: 'auto' }, zIndex: 1000, p: { xs: 0.5, md: 0 }, bgcolor: { xs: 'background.paper', md: 'transparent' }, boxShadow: { xs: 8, md: 0 } }}>
+              <Box sx={{ position: { xs: 'fixed', md: 'static' }, left: 0, right: 0, bottom: 0, width: { xs: '100vw', md: 'auto' }, zIndex: 1000, p: { xs: 0.5, md: 0 }, bgcolor: { xs: 'background.paper', md: 'transparent' }, boxShadow: { xs: 8, md: 0 } }}>
                 <Button
                   variant="contained"
                   color="primary"
