@@ -18,9 +18,8 @@ export default function Profile() {
       <Paper sx={{ p: 3, borderRadius: 3, boxShadow: 3, maxWidth: 400 }}>
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mb: 2 }}>
           <Avatar sx={{ width: 80, height: 80, mb: 2 }} />
-          <TextField fullWidth label={t('body')} sx={{ mb: 2 }} />
-          <TextField fullWidth label={t('workout')} sx={{ mb: 2 }} />
-          <TextField fullWidth label={t('motivation')} sx={{ mb: 2 }} />
+          <TextField fullWidth label={t('name') || 'Имя'} sx={{ mb: 2 }} />
+          <TextField fullWidth label="Email" sx={{ mb: 2 }} />
           <Button variant="contained" color="primary" fullWidth>{t('save')}</Button>
         </Box>
         <FormControl fullWidth sx={{ mt: 2 }}>
