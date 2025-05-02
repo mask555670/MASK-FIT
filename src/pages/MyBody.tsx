@@ -72,34 +72,36 @@ export default function MyBody() {
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={ru}>
-      <Box sx={{ p: 3 }}>
+      <Box sx={{ p: { xs: 1, md: 3 } }}>
         <Paper sx={{
-          p: 3,
-          mb: 3,
+          p: { xs: 2, md: 3 },
+          mb: { xs: 2, md: 3 },
           borderRadius: 3,
           boxShadow: 4,
           background: 'linear-gradient(90deg, #2196f3 0%, #00e676 100%)',
           color: '#fff',
           display: 'flex',
-          alignItems: 'center',
+          flexDirection: { xs: 'column', sm: 'row' },
+          alignItems: { xs: 'flex-start', sm: 'center' },
           justifyContent: 'space-between',
+          gap: 2,
         }}>
-          <Typography variant="h5" sx={{ fontWeight: 700 }}>
+          <Typography variant="h6" sx={{ fontWeight: 700, fontSize: { xs: 16, sm: 20, md: 24 } }}>
             {t('motivation')}: {t('welcome')}
           </Typography>
           <Box>
-            <Paper sx={{ display: 'inline-block', px: 2, py: 1, bgcolor: 'rgba(255,255,255,0.15)', color: '#fff', fontWeight: 600, borderRadius: 2, boxShadow: 0 }}>
+            <Paper sx={{ display: 'inline-block', px: 2, py: 1, bgcolor: 'rgba(255,255,255,0.15)', color: '#fff', fontWeight: 600, borderRadius: 2, boxShadow: 0, fontSize: { xs: 12, sm: 16 } }}>
               🏅 7 дней подряд!
             </Paper>
           </Box>
         </Paper>
-        <Typography variant="h4" gutterBottom>
+        <Typography variant="h4" gutterBottom sx={{ fontSize: { xs: 22, md: 32 } }}>
           {t('body')}
         </Typography>
         
-        <Grid container spacing={3}>
+        <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
-            <Paper sx={{ p: 3, borderRadius: 3, boxShadow: 3, mb: 3 }}>
+            <Paper sx={{ p: { xs: 2, md: 3 }, borderRadius: 3, boxShadow: 3, mb: 3 }}>
               <Typography variant="h6" gutterBottom>
                 {t('addExercise')}
               </Typography>
@@ -111,78 +113,30 @@ export default function MyBody() {
                 renderInput={(params) => <TextField {...params} fullWidth sx={{ mb: 2 }} />}
               />
 
-              <Grid container spacing={2}>
-                <Grid item xs={6}>
-                  <TextField
-                    fullWidth
-                    label={t('weight')}
-                    type="number"
-                    value={measurements.weight}
-                    onChange={handleInputChange('weight')}
-                  />
+              <Grid container spacing={1}>
+                <Grid item xs={6} sm={6}>
+                  <TextField fullWidth label={t('weight')} type="number" value={measurements.weight} onChange={handleInputChange('weight')} size="small" />
                 </Grid>
-                <Grid item xs={6}>
-                  <TextField
-                    fullWidth
-                    label="Рост (см)"
-                    type="number"
-                    value={measurements.height}
-                    onChange={handleInputChange('height')}
-                  />
+                <Grid item xs={6} sm={6}>
+                  <TextField fullWidth label="Рост (см)" type="number" value={measurements.height} onChange={handleInputChange('height')} size="small" />
                 </Grid>
-                <Grid item xs={6}>
-                  <TextField
-                    fullWidth
-                    label="Обхват плеч (см)"
-                    type="number"
-                    value={measurements.shoulders}
-                    onChange={handleInputChange('shoulders')}
-                  />
+                <Grid item xs={6} sm={6}>
+                  <TextField fullWidth label={t('shoulders')} type="number" value={measurements.shoulders} onChange={handleInputChange('shoulders')} size="small" />
                 </Grid>
-                <Grid item xs={6}>
-                  <TextField
-                    fullWidth
-                    label="Обхват груди (см)"
-                    type="number"
-                    value={measurements.chest}
-                    onChange={handleInputChange('chest')}
-                  />
+                <Grid item xs={6} sm={6}>
+                  <TextField fullWidth label={t('chest')} type="number" value={measurements.chest} onChange={handleInputChange('chest')} size="small" />
                 </Grid>
-                <Grid item xs={6}>
-                  <TextField
-                    fullWidth
-                    label="Обхват талии (см)"
-                    type="number"
-                    value={measurements.waist}
-                    onChange={handleInputChange('waist')}
-                  />
+                <Grid item xs={6} sm={6}>
+                  <TextField fullWidth label={t('waist')} type="number" value={measurements.waist} onChange={handleInputChange('waist')} size="small" />
                 </Grid>
-                <Grid item xs={6}>
-                  <TextField
-                    fullWidth
-                    label="Обхват бицепса (см)"
-                    type="number"
-                    value={measurements.biceps}
-                    onChange={handleInputChange('biceps')}
-                  />
+                <Grid item xs={6} sm={6}>
+                  <TextField fullWidth label={t('biceps')} type="number" value={measurements.biceps} onChange={handleInputChange('biceps')} size="small" />
                 </Grid>
-                <Grid item xs={6}>
-                  <TextField
-                    fullWidth
-                    label="Обхват предплечья (см)"
-                    type="number"
-                    value={measurements.forearm}
-                    onChange={handleInputChange('forearm')}
-                  />
+                <Grid item xs={6} sm={6}>
+                  <TextField fullWidth label={t('forearm')} type="number" value={measurements.forearm} onChange={handleInputChange('forearm')} size="small" />
                 </Grid>
-                <Grid item xs={6}>
-                  <TextField
-                    fullWidth
-                    label="Обхват бедра (см)"
-                    type="number"
-                    value={measurements.thigh}
-                    onChange={handleInputChange('thigh')}
-                  />
+                <Grid item xs={6} sm={6}>
+                  <TextField fullWidth label={t('thigh')} type="number" value={measurements.thigh} onChange={handleInputChange('thigh')} size="small" />
                 </Grid>
               </Grid>
 
@@ -190,7 +144,7 @@ export default function MyBody() {
                 variant="contained"
                 color="primary"
                 onClick={handleSubmit}
-                sx={{ mt: 2, fontWeight: 600, borderRadius: 2, boxShadow: 2, letterSpacing: 1 }}
+                sx={{ mt: 2, fontWeight: 600, borderRadius: 2, boxShadow: 2, letterSpacing: 1, py: 1.5, fontSize: { xs: 16, md: 18 } }}
                 fullWidth
               >
                 {t('save')}
@@ -199,44 +153,44 @@ export default function MyBody() {
           </Grid>
 
           <Grid item xs={12} md={6}>
-            <Paper sx={{ p: 3 }}>
+            <Paper sx={{ p: { xs: 2, md: 3 }, borderRadius: 3, boxShadow: 3, mb: 3 }}>
               <Typography variant="h6" gutterBottom>
                 История измерений
               </Typography>
-              <TableContainer>
-                <Table>
-                  <TableHead>
-                    <TableRow>
-                      <TableCell>Дата</TableCell>
-                      <TableCell>Вес</TableCell>
-                      <TableCell>Рост</TableCell>
-                      <TableCell>Плечи</TableCell>
-                      <TableCell>Грудь</TableCell>
-                      <TableCell>Талия</TableCell>
-                      <TableCell>Бицепс</TableCell>
-                      <TableCell>Предплечье</TableCell>
-                      <TableCell>Бедро</TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {measurementsHistory.map((measurement, index) => (
-                      <TableRow key={index}>
-                        <TableCell>
-                          {measurement.date.toLocaleDateString()}
-                        </TableCell>
-                        <TableCell>{measurement.weight}</TableCell>
-                        <TableCell>{measurement.height}</TableCell>
-                        <TableCell>{measurement.shoulders}</TableCell>
-                        <TableCell>{measurement.chest}</TableCell>
-                        <TableCell>{measurement.waist}</TableCell>
-                        <TableCell>{measurement.biceps}</TableCell>
-                        <TableCell>{measurement.forearm}</TableCell>
-                        <TableCell>{measurement.thigh}</TableCell>
+              <Box sx={{ width: '100%', overflowX: 'auto' }}>
+                <TableContainer>
+                  <Table size="small">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>{t('date')}</TableCell>
+                        <TableCell>{t('weight')}</TableCell>
+                        <TableCell>Рост</TableCell>
+                        <TableCell>{t('shoulders')}</TableCell>
+                        <TableCell>{t('chest')}</TableCell>
+                        <TableCell>{t('waist')}</TableCell>
+                        <TableCell>{t('biceps')}</TableCell>
+                        <TableCell>{t('forearm')}</TableCell>
+                        <TableCell>{t('thigh')}</TableCell>
                       </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </TableContainer>
+                    </TableHead>
+                    <TableBody>
+                      {measurementsHistory.map((measurement, index) => (
+                        <TableRow key={index}>
+                          <TableCell>{measurement.date.toLocaleDateString()}</TableCell>
+                          <TableCell>{measurement.weight}</TableCell>
+                          <TableCell>{measurement.height}</TableCell>
+                          <TableCell>{measurement.shoulders}</TableCell>
+                          <TableCell>{measurement.chest}</TableCell>
+                          <TableCell>{measurement.waist}</TableCell>
+                          <TableCell>{measurement.biceps}</TableCell>
+                          <TableCell>{measurement.forearm}</TableCell>
+                          <TableCell>{measurement.thigh}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </Box>
             </Paper>
           </Grid>
         </Grid>
