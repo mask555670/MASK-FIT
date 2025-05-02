@@ -30,6 +30,27 @@ body {
   min-height: 100vh;
   overflow-x: hidden !important;
   background-color: #000000;
+  background-image: url('/bg-main.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.7);
+  z-index: 0;
+  pointer-events: none;
+}
+
+#root, .app-content {
+  position: relative;
+  z-index: 1;
 }
 
 h1 {

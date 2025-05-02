@@ -30,7 +30,7 @@ export default function Motivation() {
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundImage: 'url(https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80)',
+      backgroundImage: 'url(/motivation-bg.jpg)',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       position: 'relative',
@@ -39,19 +39,19 @@ export default function Motivation() {
       <Box sx={{
         position: 'absolute',
         top: 0, left: 0, right: 0, bottom: 0,
-        bgcolor: 'rgba(0,0,0,0.45)',
+        bgcolor: 'rgba(0,0,0,0.7)',
         zIndex: 1,
       }} />
       <Box sx={{ position: 'relative', zIndex: 2, width: '100%', maxWidth: 600 }}>
-        <Typography variant="h4" gutterBottom sx={{ color: '#fff', fontWeight: 700 }}>
+        <Typography variant="h4" gutterBottom sx={{ color: '#ff0000', fontWeight: 700, textShadow: '2px 2px 8px #000' }}>
           Мотивация
         </Typography>
-        <Paper sx={{ p: 3, mb: 2, borderRadius: 3, boxShadow: 6, background: 'linear-gradient(90deg, #2196f3 0%, #00e676 100%)', color: '#fff', fontSize: 22, fontWeight: 600 }}>
-          <Typography variant="h6" sx={{ color: '#fff', fontWeight: 600, fontSize: { xs: 16, md: 22 } }}>
+        <Paper sx={{ p: 3, mb: 2, borderRadius: 3, boxShadow: 6, background: 'rgba(30,0,0,0.85)', color: '#ff0000', fontSize: 22, fontWeight: 600 }}>
+          <Typography variant="h6" sx={{ color: '#ff0000', fontWeight: 600, fontSize: { xs: 16, md: 22 }, textShadow: '1px 1px 6px #000' }}>
             "{quote}"
           </Typography>
         </Paper>
-        <Paper sx={{ display: 'inline-block', px: 2, py: 1, bgcolor: 'rgba(0,230,118,0.9)', color: '#fff', fontWeight: 700, borderRadius: 2, boxShadow: 2, fontSize: 18 }}>
+        <Paper sx={{ display: 'inline-block', px: 2, py: 1, bgcolor: 'rgba(255,0,0,0.85)', color: '#fff', fontWeight: 700, borderRadius: 2, boxShadow: 2, fontSize: 18 }}>
           {todayMotivation}
         </Paper>
       </Box>
