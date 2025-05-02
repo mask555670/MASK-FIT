@@ -30,31 +30,22 @@ export default function Motivation() {
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundImage: 'url(/motivation-bg.jpg)',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
       position: 'relative',
+      width: '100%',
+      maxWidth: 600,
+      margin: '0 auto',
     }}>
-      {/* Затемнение для читаемости */}
-      <Box sx={{
-        position: 'absolute',
-        top: 0, left: 0, right: 0, bottom: 0,
-        bgcolor: 'rgba(0,0,0,0.7)',
-        zIndex: 1,
-      }} />
-      <Box sx={{ position: 'relative', zIndex: 2, width: '100%', maxWidth: 600 }}>
-        <Typography variant="h4" gutterBottom sx={{ color: '#ff0000', fontWeight: 700, textShadow: '2px 2px 8px #000' }}>
-          Мотивация
+      <Typography variant="h4" gutterBottom sx={{ color: '#ff0000', fontWeight: 700, textShadow: '2px 2px 8px #000' }}>
+        Мотивация
+      </Typography>
+      <Paper sx={{ p: 3, mb: 2, borderRadius: 3, boxShadow: 6, background: 'rgba(30,0,0,0.85)', color: '#ff0000', fontSize: 22, fontWeight: 600 }}>
+        <Typography variant="h6" sx={{ color: '#ff0000', fontWeight: 600, fontSize: { xs: 16, md: 22 }, textShadow: '1px 1px 6px #000' }}>
+          "{quote}"
         </Typography>
-        <Paper sx={{ p: 3, mb: 2, borderRadius: 3, boxShadow: 6, background: 'rgba(30,0,0,0.85)', color: '#ff0000', fontSize: 22, fontWeight: 600 }}>
-          <Typography variant="h6" sx={{ color: '#ff0000', fontWeight: 600, fontSize: { xs: 16, md: 22 }, textShadow: '1px 1px 6px #000' }}>
-            "{quote}"
-          </Typography>
-        </Paper>
-        <Paper sx={{ display: 'inline-block', px: 2, py: 1, bgcolor: 'rgba(255,0,0,0.85)', color: '#fff', fontWeight: 700, borderRadius: 2, boxShadow: 2, fontSize: 18 }}>
-          {todayMotivation}
-        </Paper>
-      </Box>
+      </Paper>
+      <Paper sx={{ display: 'inline-block', px: 2, py: 1, bgcolor: 'rgba(255,0,0,0.85)', color: '#fff', fontWeight: 700, borderRadius: 2, boxShadow: 2, fontSize: 18 }}>
+        {todayMotivation}
+      </Paper>
     </Box>
   );
 } 
