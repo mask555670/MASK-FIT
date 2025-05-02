@@ -72,10 +72,15 @@ export default function MyBody() {
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={ru}>
-      <Box sx={{ p: { xs: 1, md: 3 } }}>
+      <Box sx={{
+        p: { xs: 0.5, md: 3 },
+        maxWidth: { xs: 420, md: '100%' },
+        mx: 'auto',
+        overflowX: 'hidden',
+      }}>
         <Paper sx={{
-          p: { xs: 2, md: 3 },
-          mb: { xs: 2, md: 3 },
+          p: { xs: 1, md: 3 },
+          mb: { xs: 1, md: 3 },
           borderRadius: 3,
           boxShadow: 4,
           background: 'linear-gradient(90deg, #2196f3 0%, #00e676 100%)',
@@ -85,64 +90,48 @@ export default function MyBody() {
           alignItems: { xs: 'flex-start', sm: 'center' },
           justifyContent: 'space-between',
           gap: 2,
+          minWidth: 0,
         }}>
-          <Typography variant="h6" sx={{ fontWeight: 700, fontSize: { xs: 16, sm: 20, md: 24 } }}>
+          <Typography variant="h6" sx={{ fontWeight: 700, fontSize: { xs: 14, sm: 20, md: 24 } }}>
             {t('motivation')}: {t('welcome')}
           </Typography>
           <Box>
-            <Paper sx={{ display: 'inline-block', px: 2, py: 1, bgcolor: 'rgba(255,255,255,0.15)', color: '#fff', fontWeight: 600, borderRadius: 2, boxShadow: 0, fontSize: { xs: 12, sm: 16 } }}>
+            <Paper sx={{ display: 'inline-block', px: 2, py: 1, bgcolor: 'rgba(255,255,255,0.15)', color: '#fff', fontWeight: 600, borderRadius: 2, boxShadow: 0, fontSize: { xs: 10, sm: 16 } }}>
               🏅 7 дней подряд!
             </Paper>
           </Box>
         </Paper>
-        <Typography variant="h4" gutterBottom sx={{ fontSize: { xs: 22, md: 32 } }}>
+        <Typography variant="h4" gutterBottom sx={{ fontSize: { xs: 18, md: 32 } }}>
           {t('body')}
         </Typography>
-        
-        <Grid container spacing={2}>
+        <Grid container spacing={1}>
           <Grid item xs={12} md={6}>
-            <Paper sx={{ p: { xs: 1, md: 3 }, borderRadius: 3, boxShadow: 3, mb: 3 }}>
-              <Typography variant="h6" gutterBottom sx={{ fontSize: { xs: 16, md: 20 } }}>
+            <Paper sx={{ p: { xs: 1, md: 3 }, borderRadius: 3, boxShadow: 3, mb: 2 }}>
+              <Typography variant="h6" gutterBottom sx={{ fontSize: { xs: 14, md: 20 } }}>
                 {t('addExercise')}
               </Typography>
               <DatePicker
                 label={t('date')}
                 value={selectedDate}
                 onChange={(date) => handleDateChange(date as Date | null)}
-                renderInput={(params) => <TextField {...params} fullWidth sx={{ mb: 2 }} />}
+                renderInput={(params) => <TextField {...params} fullWidth sx={{ mb: 1 }} size="small" />}
               />
-              <Grid container spacing={1} direction={{ xs: 'column', sm: 'row' }}>
-                <Grid item xs={12} sm={6}>
-                  <TextField fullWidth label={t('weight')} type="number" value={measurements.weight} onChange={handleInputChange('weight')} size="small" sx={{ mb: { xs: 1, sm: 0 } }} />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField fullWidth label="Рост (см)" type="number" value={measurements.height} onChange={handleInputChange('height')} size="small" sx={{ mb: { xs: 1, sm: 0 } }} />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField fullWidth label={t('shoulders')} type="number" value={measurements.shoulders} onChange={handleInputChange('shoulders')} size="small" sx={{ mb: { xs: 1, sm: 0 } }} />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField fullWidth label={t('chest')} type="number" value={measurements.chest} onChange={handleInputChange('chest')} size="small" sx={{ mb: { xs: 1, sm: 0 } }} />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField fullWidth label={t('waist')} type="number" value={measurements.waist} onChange={handleInputChange('waist')} size="small" sx={{ mb: { xs: 1, sm: 0 } }} />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField fullWidth label={t('biceps')} type="number" value={measurements.biceps} onChange={handleInputChange('biceps')} size="small" sx={{ mb: { xs: 1, sm: 0 } }} />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField fullWidth label={t('forearm')} type="number" value={measurements.forearm} onChange={handleInputChange('forearm')} size="small" sx={{ mb: { xs: 1, sm: 0 } }} />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField fullWidth label={t('thigh')} type="number" value={measurements.thigh} onChange={handleInputChange('thigh')} size="small" sx={{ mb: { xs: 1, sm: 0 } }} />
-                </Grid>
+              <Grid container spacing={0.5} direction="column">
+                <Grid item xs={12}><TextField fullWidth label={t('weight')} type="number" value={measurements.weight} onChange={handleInputChange('weight')} size="small" sx={{ mb: 0.5 }} inputProps={{ style: { fontSize: 14 } }} /></Grid>
+                <Grid item xs={12}><TextField fullWidth label="Рост (см)" type="number" value={measurements.height} onChange={handleInputChange('height')} size="small" sx={{ mb: 0.5 }} inputProps={{ style: { fontSize: 14 } }} /></Grid>
+                <Grid item xs={12}><TextField fullWidth label={t('shoulders')} type="number" value={measurements.shoulders} onChange={handleInputChange('shoulders')} size="small" sx={{ mb: 0.5 }} inputProps={{ style: { fontSize: 14 } }} /></Grid>
+                <Grid item xs={12}><TextField fullWidth label={t('chest')} type="number" value={measurements.chest} onChange={handleInputChange('chest')} size="small" sx={{ mb: 0.5 }} inputProps={{ style: { fontSize: 14 } }} /></Grid>
+                <Grid item xs={12}><TextField fullWidth label={t('waist')} type="number" value={measurements.waist} onChange={handleInputChange('waist')} size="small" sx={{ mb: 0.5 }} inputProps={{ style: { fontSize: 14 } }} /></Grid>
+                <Grid item xs={12}><TextField fullWidth label={t('biceps')} type="number" value={measurements.biceps} onChange={handleInputChange('biceps')} size="small" sx={{ mb: 0.5 }} inputProps={{ style: { fontSize: 14 } }} /></Grid>
+                <Grid item xs={12}><TextField fullWidth label={t('forearm')} type="number" value={measurements.forearm} onChange={handleInputChange('forearm')} size="small" sx={{ mb: 0.5 }} inputProps={{ style: { fontSize: 14 } }} /></Grid>
+                <Grid item xs={12}><TextField fullWidth label={t('thigh')} type="number" value={measurements.thigh} onChange={handleInputChange('thigh')} size="small" sx={{ mb: 0.5 }} inputProps={{ style: { fontSize: 14 } }} /></Grid>
               </Grid>
-              <Box sx={{ position: { xs: 'fixed', md: 'static' }, left: 0, bottom: 0, width: { xs: '100%', md: 'auto' }, zIndex: 1000, p: { xs: 1, md: 0 }, bgcolor: { xs: 'background.paper', md: 'transparent' }, boxShadow: { xs: 8, md: 0 } }}>
+              <Box sx={{ position: { xs: 'fixed', md: 'static' }, left: 0, bottom: 0, width: { xs: '100%', md: 'auto' }, zIndex: 1000, p: { xs: 0.5, md: 0 }, bgcolor: { xs: 'background.paper', md: 'transparent' }, boxShadow: { xs: 8, md: 0 } }}>
                 <Button
                   variant="contained"
                   color="primary"
                   onClick={handleSubmit}
-                  sx={{ mt: 2, fontWeight: 600, borderRadius: 2, boxShadow: 2, letterSpacing: 1, py: 1.5, fontSize: { xs: 16, md: 18 }, width: '100%' }}
+                  sx={{ mt: 1, fontWeight: 600, borderRadius: 2, boxShadow: 2, letterSpacing: 1, py: 1, fontSize: { xs: 14, md: 18 }, width: '100%' }}
                 >
                   {t('save')}
                 </Button>
@@ -150,8 +139,8 @@ export default function MyBody() {
             </Paper>
           </Grid>
           <Grid item xs={12} md={6}>
-            <Paper sx={{ p: { xs: 1, md: 3 }, borderRadius: 3, boxShadow: 3, mb: 3 }}>
-              <Typography variant="h6" gutterBottom sx={{ fontSize: { xs: 16, md: 20 } }}>
+            <Paper sx={{ p: { xs: 1, md: 3 }, borderRadius: 3, boxShadow: 3, mb: 2 }}>
+              <Typography variant="h6" gutterBottom sx={{ fontSize: { xs: 14, md: 20 } }}>
                 История измерений
               </Typography>
               <Box sx={{ width: '100%', overflowX: 'auto' }}>
@@ -159,29 +148,29 @@ export default function MyBody() {
                   <Table size="small" sx={{ minWidth: 600 }}>
                     <TableHead>
                       <TableRow>
-                        <TableCell sx={{ fontSize: { xs: 12, md: 14 }, p: { xs: 0.5, md: 1 } }}>{t('date')}</TableCell>
-                        <TableCell sx={{ fontSize: { xs: 12, md: 14 }, p: { xs: 0.5, md: 1 } }}>{t('weight')}</TableCell>
-                        <TableCell sx={{ fontSize: { xs: 12, md: 14 }, p: { xs: 0.5, md: 1 } }}>Рост</TableCell>
-                        <TableCell sx={{ fontSize: { xs: 12, md: 14 }, p: { xs: 0.5, md: 1 } }}>{t('shoulders')}</TableCell>
-                        <TableCell sx={{ fontSize: { xs: 12, md: 14 }, p: { xs: 0.5, md: 1 } }}>{t('chest')}</TableCell>
-                        <TableCell sx={{ fontSize: { xs: 12, md: 14 }, p: { xs: 0.5, md: 1 } }}>{t('waist')}</TableCell>
-                        <TableCell sx={{ fontSize: { xs: 12, md: 14 }, p: { xs: 0.5, md: 1 } }}>{t('biceps')}</TableCell>
-                        <TableCell sx={{ fontSize: { xs: 12, md: 14 }, p: { xs: 0.5, md: 1 } }}>{t('forearm')}</TableCell>
-                        <TableCell sx={{ fontSize: { xs: 12, md: 14 }, p: { xs: 0.5, md: 1 } }}>{t('thigh')}</TableCell>
+                        <TableCell sx={{ fontSize: { xs: 10, md: 14 }, p: { xs: 0.3, md: 1 } }}>{t('date')}</TableCell>
+                        <TableCell sx={{ fontSize: { xs: 10, md: 14 }, p: { xs: 0.3, md: 1 } }}>{t('weight')}</TableCell>
+                        <TableCell sx={{ fontSize: { xs: 10, md: 14 }, p: { xs: 0.3, md: 1 } }}>Рост</TableCell>
+                        <TableCell sx={{ fontSize: { xs: 10, md: 14 }, p: { xs: 0.3, md: 1 } }}>{t('shoulders')}</TableCell>
+                        <TableCell sx={{ fontSize: { xs: 10, md: 14 }, p: { xs: 0.3, md: 1 } }}>{t('chest')}</TableCell>
+                        <TableCell sx={{ fontSize: { xs: 10, md: 14 }, p: { xs: 0.3, md: 1 } }}>{t('waist')}</TableCell>
+                        <TableCell sx={{ fontSize: { xs: 10, md: 14 }, p: { xs: 0.3, md: 1 } }}>{t('biceps')}</TableCell>
+                        <TableCell sx={{ fontSize: { xs: 10, md: 14 }, p: { xs: 0.3, md: 1 } }}>{t('forearm')}</TableCell>
+                        <TableCell sx={{ fontSize: { xs: 10, md: 14 }, p: { xs: 0.3, md: 1 } }}>{t('thigh')}</TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>
                       {measurementsHistory.map((measurement, index) => (
                         <TableRow key={index}>
-                          <TableCell sx={{ fontSize: { xs: 12, md: 14 }, p: { xs: 0.5, md: 1 } }}>{measurement.date.toLocaleDateString()}</TableCell>
-                          <TableCell sx={{ fontSize: { xs: 12, md: 14 }, p: { xs: 0.5, md: 1 } }}>{measurement.weight}</TableCell>
-                          <TableCell sx={{ fontSize: { xs: 12, md: 14 }, p: { xs: 0.5, md: 1 } }}>{measurement.height}</TableCell>
-                          <TableCell sx={{ fontSize: { xs: 12, md: 14 }, p: { xs: 0.5, md: 1 } }}>{measurement.shoulders}</TableCell>
-                          <TableCell sx={{ fontSize: { xs: 12, md: 14 }, p: { xs: 0.5, md: 1 } }}>{measurement.chest}</TableCell>
-                          <TableCell sx={{ fontSize: { xs: 12, md: 14 }, p: { xs: 0.5, md: 1 } }}>{measurement.waist}</TableCell>
-                          <TableCell sx={{ fontSize: { xs: 12, md: 14 }, p: { xs: 0.5, md: 1 } }}>{measurement.biceps}</TableCell>
-                          <TableCell sx={{ fontSize: { xs: 12, md: 14 }, p: { xs: 0.5, md: 1 } }}>{measurement.forearm}</TableCell>
-                          <TableCell sx={{ fontSize: { xs: 12, md: 14 }, p: { xs: 0.5, md: 1 } }}>{measurement.thigh}</TableCell>
+                          <TableCell sx={{ fontSize: { xs: 10, md: 14 }, p: { xs: 0.3, md: 1 } }}>{measurement.date.toLocaleDateString()}</TableCell>
+                          <TableCell sx={{ fontSize: { xs: 10, md: 14 }, p: { xs: 0.3, md: 1 } }}>{measurement.weight}</TableCell>
+                          <TableCell sx={{ fontSize: { xs: 10, md: 14 }, p: { xs: 0.3, md: 1 } }}>{measurement.height}</TableCell>
+                          <TableCell sx={{ fontSize: { xs: 10, md: 14 }, p: { xs: 0.3, md: 1 } }}>{measurement.shoulders}</TableCell>
+                          <TableCell sx={{ fontSize: { xs: 10, md: 14 }, p: { xs: 0.3, md: 1 } }}>{measurement.chest}</TableCell>
+                          <TableCell sx={{ fontSize: { xs: 10, md: 14 }, p: { xs: 0.3, md: 1 } }}>{measurement.waist}</TableCell>
+                          <TableCell sx={{ fontSize: { xs: 10, md: 14 }, p: { xs: 0.3, md: 1 } }}>{measurement.biceps}</TableCell>
+                          <TableCell sx={{ fontSize: { xs: 10, md: 14 }, p: { xs: 0.3, md: 1 } }}>{measurement.forearm}</TableCell>
+                          <TableCell sx={{ fontSize: { xs: 10, md: 14 }, p: { xs: 0.3, md: 1 } }}>{measurement.thigh}</TableCell>
                         </TableRow>
                       ))}
                     </TableBody>
